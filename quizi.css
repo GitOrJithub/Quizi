@@ -134,6 +134,7 @@ body {
 }
 
 #btn {
+  visibility: hidden;
   padding: 0.6rem 1.5rem;
   outline: none;
   background: #111;

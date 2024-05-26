@@ -147,7 +147,7 @@ function nextQuestion() {
   if (currentQuiz < quizData.length) {
     loadQuiz();
   } else {
-    quiz.innerHTML = `<h2>You answered ${score}/${quizData.length} question correctly</h2>
+    quiz.innerHTML = `<h2>${quizData.length}문제 중에 ${score}문제가 맞았습니다</h2>
     <button type="button" id="reload" onclick="location.reload()">다시 시작</button>
     `;
     footerEl.style.display = "none";
