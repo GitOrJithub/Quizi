@@ -150,21 +150,15 @@ btnSubmit.addEventListener("click", function () {
     nextQuestion();
   }
 });
-
 function nextQuestion() {
   currentQuiz++;
 
   if (currentQuiz < quizData.length) {
     loadQuiz();
-  } else if ((currentQuiz = !quizData.length)) {
-    quiz.innerHTML = `<h2>${quizData.length}문제 중 ${score}문제가 맞았습니다</h2>
-    <button type="button" align-items: center id="reload" onclick="location.reload()">다시 시작</button>
-    `;
-    footerEl.style.display = "none";
   } else {
-    quiz.innerHTML = `<h2>축하합니다 ${quizData.length}문제중 모든 문제가 맞았습니다</h2>
-    <button type="button" align-items: center id="reload" onclick="location.reload()">다시 시작</button>
-    `;
+    quiz.innerHTML = `<h2>${quizData.length}중에  ${score}문제를 맞추었습니다</h2>
+  <button type="button" onclick="location.reload()" id="reload">Reload</button>
+  `;
     footerEl.style.display = "none";
   }
 }
