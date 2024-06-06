@@ -13,7 +13,7 @@ const quizData = [
 
   {
     question:
-      "파이썬은 3가지의 데이터 타입이 있다.\n그중에 str, _____, float은 순서대로 문자형, 정수형, 실수형으로 나누어진다.\n이때 빈칸에 들어갈 정수형의 객체 타입명에 해당하는 타입은?",
+      "파이썬은 3가지의 데이터 타입이 있다.\n그중에 str, _____, float은 순서대로 문자형, 정수형, 실수형으로 나누어진다.\n이때 빈칸에 들어갈 정수형의 객체 타입명에 해당하는 타입은?\n(객체 타입명은 약자를 의미한다)",
     a: "integrate",
     b: "integer",
     c: "int",
@@ -29,25 +29,26 @@ const quizData = [
     correct: "b",
   },
   {
-    question: "이 퀴즈에 쓰인 3개의 코딩언어를 바르게 써놓은 것은?",
-    a: "HTML, Python, CSS",
-    b: "C++, CSS, Lua",
-    c: "HTML, Javascript, CSS",
-    d: "XHTML, Java, C--",
+    question:
+      "이 퀴즈는 웹사이트를 만들때 주로 쓰이는 3가지의 코딩언어인 HMTL, _____, CSS(이)가 쓰인다.\n  빈칸에 들어갈 코딩언어를 바르게 써놓은 것은?",
+    a: "Python",
+    b: "C++",
+    c: "Javascript",
+    d: "C--",
     correct: "c",
   },
   //초보 퀴즈
   {
-    question: "자바스크립트가 만들어진 년도로 알맞은 것은?",
-    a: "1996",
-    b: "1995",
-    c: "1994",
-    d: "1989",
-    correct: "b",
+    question: "CSS의 크기 단위중 아닌 것은?",
+    a: "cm",
+    b: "vh",
+    c: "rem",
+    d: "px",
+    correct: "a",
   },
   {
     question:
-      "코딩이는 두 수 a와b를 입력해 a와 b를 서로 곱하는 프로그램을 짤려고 한다.\na,b = map(int, input().split())\nc = a_b\nprint(c)\n 위에 코드의 빈칸에 들어갈 연산자로 알맞은 것은?",
+      "코딩이는 두 수 a와b를 입력해 a와 b를 서로 곱하는 프로그램을 만들려고 한다.\na,b = map(int, input().split())\nc = a_b\nprint(c)\n 위에 코드의 빈칸에 들어갈 연산자로 알맞은 것은?",
     a: "X",
     b: "x",
     c: "*",
@@ -86,7 +87,7 @@ const quizData = [
     question:
       "x = int(input())\ny = int(input())\nif x > 0 and y > 0:\n    print('1')\nelif x < 0 and y > 0:\n    print('2')\nelif x < 0 and y < 0:\n    print('3')\nelse:\n    print('4')\n위에 함수가 구하자고 하는 것은?",
     a: "x값과 y값을 대입해 f(x) 함수를 미분한 f'(x)를 알려주기",
-    b: "x값과 y값을 대입해 나온 점이 접한는 함수의 개수 구하기",
+    b: "x값과 y값을 대입해 나온 점이 접하는 함수의 개수 구하기",
     c: "x값과 y값을 대입해 점을 구한 후 그 점이 있는 사분면을 알려주기",
     d: "x값과 y값을 대입해 멋진 산 그림 그려주기",
     correct: "c",
@@ -155,8 +156,13 @@ function nextQuestion() {
 
   if (currentQuiz < quizData.length) {
     loadQuiz();
+  } else if ((currentQuiz = !quizData.length)) {
+    quiz.innerHTML = `<h2>${quizData.length}문제 중 ${score}문제가 맞았습니다</h2>
+    <button type="button" align-items: center id="reload" onclick="location.reload()">다시 시작</button>
+    `;
+    footerEl.style.display = "none";
   } else {
-    quiz.innerHTML = `<h2>${quizData.length}문제 중에 ${score}문제가 맞았습니다</h2>
+    quiz.innerHTML = `<h2>축하합니다 ${quizData.length}문제중 모든 문제가 맞았습니다</h2>
     <button type="button" align-items: center id="reload" onclick="location.reload()">다시 시작</button>
     `;
     footerEl.style.display = "none";

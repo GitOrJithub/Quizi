@@ -73,6 +73,10 @@ body {
   text-align-last: left;
 }
 
+.byme {
+  font-size: 0.75rem;
+}
+
 .quiz-container {
   background: #fff;
   border-radius: 10px;
